@@ -6,6 +6,7 @@
 package datasaltimecomplexity;
 
 import java.util.*;
+import ph.edu.dlsu.datasal.MyList;
 
 /**
  *
@@ -37,7 +38,7 @@ public class DatasalTimeComplexity {
         System.out.println("ArrayList " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
         
         start = System.nanoTime();
-        ((ArrayList<String>) collection).get(NUM_OF_ELEMENTS/2);//get a large random index
+        ((ArrayList<String>) collection).get(NUM_OF_ELEMENTS/2); 
         end = System.nanoTime();
         System.out.println("ArrayList " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
         
@@ -62,6 +63,42 @@ public class DatasalTimeComplexity {
         System.out.println("ArrayList " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
         System.out.println(" ");
 
+        
+        // MyList
+        MyList<String> list = new MyList<>();
+        list.createList();
+        start = System.nanoTime();
+        for (int i = 0; i < NUM_OF_ELEMENTS; i++) {
+            list.add(ALPHABET);
+        }
+        end = System.nanoTime();
+        System.out.println("MyList " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        list.get(NUM_OF_ELEMENTS/2); 
+        end = System.nanoTime();
+        System.out.println("MyList " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        list.add(ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyList " + "adding time (last):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        list.add(1, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyList " + "inserting time: (first)" + (end - start) / 1000000000.0 + " seconds."); 
+       
+        start = System.nanoTime();
+        list.add(NUM_OF_ELEMENTS/2, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyList " + "inserting time: (middle)" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        list.remove(NUM_OF_ELEMENTS/2);
+        end = System.nanoTime();
+        System.out.println("MyList " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println(" ");
         
 
         // LinkedList
