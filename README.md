@@ -10,6 +10,13 @@ ArrayList adding time (last):9.33E-7 seconds. [BEST-tie]
 ArrayList inserting time: (first)0.001189661 seconds.
 ArrayList inserting time: (middle)5.72437E-4 seconds. [BEST]
 ArrayList deleting time (middle):0.009286353 seconds.
+
+MyList construction time:0.038049554 seconds.
+MyList getting time (middle):2.6592E-5 seconds.
+MyList adding time (last):9.33E-7 seconds. [BEST-tie]
+MyList inserting time: (first)0.008709718 seconds.
+MyList inserting time: (middle)0.01184389 seconds.
+MyList deleting time (middle):0.014601104 seconds
  
 LinkedList construction time:0.10296958 seconds.
 LinkedList getting time (middle):0.006184371 seconds.
