@@ -6,28 +6,23 @@
 package ph.edu.dlsu.datasal.test;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import ph.edu.dlsu.datasal.Exception.ListIndexOutOfBoundsException;
-import ph.edu.dlsu.datasal.MyList;
+import ph.edu.dlsu.datasal.MyLinkedList;
 
 /**
  *
  * @author cobalt
  */
-public class MyListTest {
+public class MyLinkedListTest {
 
-    private MyList<String> list;
-
-    public MyListTest() {
-    }
+    private MyLinkedList<String> list;
 
     @Before
     public void setUp() {
-        list = new MyList<>();
+        list = new MyLinkedList<>();
         list.createList();
     }
 
@@ -45,11 +40,6 @@ public class MyListTest {
     @Test(expected = ListIndexOutOfBoundsException.class)
     public void removeWithEmptyListTest() {
         list.remove(1);
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void invalidCapacityTest() {
-        list.createList(-1);
     }
 
     @Test(expected = ListIndexOutOfBoundsException.class)
@@ -84,6 +74,15 @@ public class MyListTest {
         list.add("Kappa");
         assertEquals("Kappa", list.get(5));
         assertTrue(list.size() == 5);
+        
+        list.clear();
+
+        char alphabet = 'A';
+        for (int i = 0; i < 26; ++i) {
+            String element = Character.toString(alphabet++);
+            list.add(element);
+            assertEquals(element, list.get(i + 1));
+        }
     }
 
     @Test
@@ -120,15 +119,4 @@ public class MyListTest {
         list.clear();
         assertTrue(list.size() == 0);
     }
-    
-    @Test
-    public void ensureCapacityTest(){  // Exceed Default = 10
-        char alphabet = 'A'; 
-        for (int i = 0; i < 26; ++i) {
-            String element = Character.toString(alphabet++);
-            list.add(element);
-            assertEquals(element, list.get(i+1));
-        }        
-    }
-
 }

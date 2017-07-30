@@ -29,7 +29,7 @@ public interface List<E> {
 // to the right. Throws an exception when index is out of range
 // or if the item cannot be placed on the list (list full).
 
-    public void add(E item) throws ListIndexOutOfBoundsException;
+    public void add(E item);
 // postcondition: Insert item at end position of a list
 // Throws an exception when index is out of range
 // or if the item cannot be placed on the list (list full).

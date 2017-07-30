@@ -15,7 +15,7 @@ import java.util.Arrays;
  * @author cobalt mkc 2017
  * @param <E>
  */
-public class MyList<E> implements List<E> {
+public class MyArrayList<E> implements List<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
     private E[] data;                      // array of list data
@@ -47,7 +47,7 @@ public class MyList<E> implements List<E> {
         numItems++;
     }
 
-    public void add(E item) throws ListIndexOutOfBoundsException {
+    public void add(E item) {
         ensureCapacity(numItems + 1);
         data[numItems++] = item;
     }
@@ -63,7 +63,6 @@ public class MyList<E> implements List<E> {
             throw new ListIndexOutOfBoundsException("ERROR: List Index Out Of Bounds");
         }
     }
-   
 
     private void ensureCapacity(int minCapacity) {
         int oldCapacity = data.length;
@@ -77,9 +76,9 @@ public class MyList<E> implements List<E> {
         }
     }
 
-    public void set(int index, E item) throws ListIndexOutOfBoundsException{
+    public void set(int index, E item) throws ListIndexOutOfBoundsException {
         rangeCheckForRemove(index);
-        data[index-1] = item;
+        data[index - 1] = item;
     }
 
     public void remove(int index) throws ListIndexOutOfBoundsException {

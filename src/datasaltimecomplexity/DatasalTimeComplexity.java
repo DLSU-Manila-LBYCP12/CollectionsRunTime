@@ -6,7 +6,9 @@
 package datasaltimecomplexity;
 
 import java.util.*;
-import ph.edu.dlsu.datasal.MyList;
+import ph.edu.dlsu.datasal.MyArrayList;
+import ph.edu.dlsu.datasal.MyLinkedList;
+import ph.edu.dlsu.datasal.MyLinkedListSlow;
 
 /**
  *
@@ -14,7 +16,7 @@ import ph.edu.dlsu.datasal.MyList;
  */
 public class DatasalTimeComplexity {
 
-    private final static int NUM_OF_ELEMENTS = 1000000;
+    private final static int NUM_OF_ELEMENTS = 100000;
     private final static String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     /**
@@ -64,40 +66,40 @@ public class DatasalTimeComplexity {
         System.out.println(" ");
 
         
-        // MyList
-        MyList<String> list = new MyList<>();
+        // MyArrayList
+        MyArrayList<String> list = new MyArrayList<>();
         list.createList();
         start = System.nanoTime();
         for (int i = 0; i < NUM_OF_ELEMENTS; i++) {
             list.add(ALPHABET);
         }
         end = System.nanoTime();
-        System.out.println("MyList " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println("MyArrayList " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
         
         start = System.nanoTime();
         list.get(NUM_OF_ELEMENTS/2); 
         end = System.nanoTime();
-        System.out.println("MyList " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println("MyArrayList " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
         
         start = System.nanoTime();
         list.add(ALPHABET);
         end = System.nanoTime();
-        System.out.println("MyList " + "adding time (last):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println("MyArrayList " + "adding time (last):" + (end - start) / 1000000000.0 + " seconds.");
         
         start = System.nanoTime();
         list.add(1, ALPHABET);
         end = System.nanoTime();
-        System.out.println("MyList " + "inserting time: (first)" + (end - start) / 1000000000.0 + " seconds."); 
+        System.out.println("MyArrayList " + "inserting time: (first)" + (end - start) / 1000000000.0 + " seconds."); 
        
         start = System.nanoTime();
         list.add(NUM_OF_ELEMENTS/2, ALPHABET);
         end = System.nanoTime();
-        System.out.println("MyList " + "inserting time: (middle)" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println("MyArrayList " + "inserting time: (middle)" + (end - start) / 1000000000.0 + " seconds.");
         
         start = System.nanoTime();
         list.remove(NUM_OF_ELEMENTS/2);
         end = System.nanoTime();
-        System.out.println("MyList " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println("MyArrayList " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
         System.out.println(" ");
         
 
@@ -137,6 +139,81 @@ public class DatasalTimeComplexity {
         System.out.println(" ");
 
         
+        // My LinkedList Slow         
+        MyLinkedListSlow<String> linkedlist = new MyLinkedListSlow<>();
+        linkedlist.createList();
+        start = System.nanoTime();
+        for (int i = 0; i < NUM_OF_ELEMENTS; i++) {
+            linkedlist.add(ALPHABET);
+        }
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
+        
+        
+        start = System.nanoTime();
+        linkedlist.get(NUM_OF_ELEMENTS/2);//get a large random index
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        linkedlist.add(ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "adding time (last):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        linkedlist.add(1, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "inserting time (first):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        linkedlist.add(NUM_OF_ELEMENTS/2, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "inserting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        linkedlist.remove(NUM_OF_ELEMENTS/2);
+        end = System.nanoTime();
+        System.out.println("MyLinkedListSlow " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println(" ");
+        
+        
+        // My LinkedList           
+        MyLinkedList<String> mylinkedlist = new MyLinkedList<>();
+        mylinkedlist.createList();
+        start = System.nanoTime();
+        for (int i = 0; i < NUM_OF_ELEMENTS; i++) {
+            mylinkedlist.add(ALPHABET);
+        }
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "construction time:" + (end - start) / 1000000000.0 + " seconds.");
+        
+        
+        start = System.nanoTime();
+        mylinkedlist.get(NUM_OF_ELEMENTS/2);//get a large random index
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "getting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        mylinkedlist.add(ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "adding time (last):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        mylinkedlist.add(1, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "inserting time (first):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        mylinkedlist.add(NUM_OF_ELEMENTS/2, ALPHABET);
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "inserting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        
+        start = System.nanoTime();
+        mylinkedlist.remove(NUM_OF_ELEMENTS/2);
+        end = System.nanoTime();
+        System.out.println("MyLinkedList " + "deleting time (middle):" + (end - start) / 1000000000.0 + " seconds.");
+        System.out.println(" ");
+       
 
         // Vector
         collection = new Vector<>();
