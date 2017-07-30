@@ -34,7 +34,7 @@ Vector deleting time (middle):0.008517972 seconds. [BEST]
 BUILD SUCCESSFUL (total time: 0 seconds)
 ```
 
-## Lates Run:
+## Latest Run:
 
 ```
 run:
